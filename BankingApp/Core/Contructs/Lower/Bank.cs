@@ -1,10 +1,11 @@
 ﻿using System.Collections.Generic;
 using BankingApp.Core.Contructs.Higher.Behaviours;
+using BankingApp.Core.Contructs.Lower.IModel;
+
 
 namespace BankingApp.Core.Contructs.Lower
 {
-
-    public class Bank : BankBehaviours
+    public class Bank : BankBehaviours, IBank
     {
         private string _BankName;
 
@@ -20,24 +21,30 @@ namespace BankingApp.Core.Contructs.Lower
             set { _Customers = value; }
         }
 
+
         // this is the object that holds the policies guarding the bank
-        internal SecurityProtocol Protocol;
-        private decimal _TotalMoneyInBank;
-        public decimal TotalMoneyInBank
-        {
-            get { return _TotalMoneyInBank; }
-            set { _TotalMoneyInBank = value; }
+        private SecurityProtocol _Protocol;
+        public SecurityProtocol Protocol { 
+            get
+            {
+                return _Protocol;
+            }
+            set
+            {
+                _Protocol = value;
+            }
         }
 
         public Bank(string BankName,List<Customers> 
-                    customers, SecurityProtocol protocol, 
-                    decimal totalMoneyInBank)
+                    customers, SecurityProtocol protocol)
         {
             Customers = customers;
-            TotalMoneyInBank = totalMoneyInBank;
             Protocol = protocol;
             this.BankName = BankName;
         }
-        
+        public Bank()
+        {
+
+        }
     }
 }

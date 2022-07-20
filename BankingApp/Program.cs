@@ -1,6 +1,7 @@
 ﻿using BankingApp.UI.Interaction;
 using BankingApp.Core.Contructs.Lower;
 using System.Collections.Generic;
+using BankingApp.Core;
 using System;
 using System.Runtime.InteropServices;
 
@@ -20,6 +21,8 @@ namespace BankingApp
 
         static void Main(string[] args)
         {
+            DIContainer Config = new DIContainer();
+
             Console.SetWindowSize(Console.LargestWindowWidth, Console.LargestWindowHeight);
             ShowWindow(ThisConsole, MAXIMIZE);
             //Console.ReadLine();
@@ -27,12 +30,13 @@ namespace BankingApp
             //Created the banking Object; from the Bank Entity Class
             // creating the bank system with a null amount of customer Container
             // Creating a Bank with a Starting Capital of 0.0 Niara
-            Bank BankingSystem = new Bank("dAEMON Bank",new List<Customers>(),new SecurityProtocol(),0.0M);
+            Config.Banking("dAEMON Bank",new List<Customers>(),new SecurityProtocol());
+            
 
             //================== > ========================
             //welcome page section: interface to introduce
             //the customer to the bank Activities
-            Welcome.Show(BankingSystem);
+            Welcome.Show(Config);
 
         }
     }

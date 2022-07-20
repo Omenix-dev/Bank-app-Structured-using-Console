@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "RZOrY23LXbp+uaYqV1viUHSPD+ZvcfAR817untH0Ama+OapDWwEyCxhZ792PFkkRkGFUJ+grkaMZoByIKBCqTg==",
+  "dgSpecHash": "juVH7erd2GvpZ4UxsPs2OpWPMdURB8Q+8I/nZU73FgX0iVivw/QBSWfgcf6ZsM9w2cA0DqaUDoSHHPJg1I8WrA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\hp\\Documents\\decagon task\\week 3 task\\BankingApp\\CreatingCustomer\\CreatingCustomer.csproj",
+  "projectFilePath": "\\\\wsl.localhost\\Ubuntu\\home\\omenix\\Week-3-assignment\\BankingApp\\CreatingCustomer\\TestingLoginDetails.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\hp\\.nuget\\packages\\coverlet.collector\\3.1.2\\coverlet.collector.3.1.2.nupkg.sha512",
     "C:\\Users\\hp\\.nuget\\packages\\microsoft.codecoverage\\17.1.0\\microsoft.codecoverage.17.1.0.nupkg.sha512",

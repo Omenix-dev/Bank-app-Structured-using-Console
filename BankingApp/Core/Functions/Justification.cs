@@ -1,9 +1,10 @@
-﻿
+﻿using BankingApp.Core.Functions.Interface;
+
 namespace BankingApp.Core.Functions
 {
-    public class Justification
+    public class Justification : IJustification
     {
-        public static string Center(string Text, int i)
+        public string Center(string Text, int i)
         {
             if (Text == null)
             {

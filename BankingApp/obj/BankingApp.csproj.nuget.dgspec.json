@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\hp\\Documents\\decagon task\\week 3 task\\BankingApp\\BankingApp\\BankingApp.csproj": {}
+    "\\\\wsl.localhost\\Ubuntu\\home\\omenix\\Week-3-assignment\\BankingApp\\BankingApp\\BankingApp.csproj": {}
   },
   "projects": {
-    "C:\\Users\\hp\\Documents\\decagon task\\week 3 task\\BankingApp\\BankingApp\\BankingApp.csproj": {
+    "\\\\wsl.localhost\\Ubuntu\\home\\omenix\\Week-3-assignment\\BankingApp\\BankingApp\\BankingApp.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\hp\\Documents\\decagon task\\week 3 task\\BankingApp\\BankingApp\\BankingApp.csproj",
+        "projectUniqueName": "\\\\wsl.localhost\\Ubuntu\\home\\omenix\\Week-3-assignment\\BankingApp\\BankingApp\\BankingApp.csproj",
         "projectName": "BankingApp",
-        "projectPath": "C:\\Users\\hp\\Documents\\decagon task\\week 3 task\\BankingApp\\BankingApp\\BankingApp.csproj",
+        "projectPath": "\\\\wsl.localhost\\Ubuntu\\home\\omenix\\Week-3-assignment\\BankingApp\\BankingApp\\BankingApp.csproj",
         "packagesPath": "C:\\Users\\hp\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\hp\\Documents\\decagon task\\week 3 task\\BankingApp\\BankingApp\\obj\\",
+        "outputPath": "\\\\wsl.localhost\\Ubuntu\\home\\omenix\\Week-3-assignment\\BankingApp\\BankingApp\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\hp\\AppData\\Roaming\\NuGet\\NuGet.Config",

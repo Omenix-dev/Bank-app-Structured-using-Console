@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "CLY7so7P4Yil6zrAFgWWSk+bZwtlEzZ6HtV18wZ9QgNeW2xZ5Asc3ZpXCbeBqIxJ0ic04DV7W7vdznaoUuFqGQ==",
+  "dgSpecHash": "kCP6Rtr0H7xjtaYsYrctDvWTPJIUv8+HxAZOgVa4bhTqG1Trgj4suJX6BGQDuF9XTAWWRngwtBfywCCuBdWzUQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\hp\\Documents\\decagon task\\week 3 task\\BankingApp\\BankingApp\\BankingApp.csproj",
+  "projectFilePath": "\\\\wsl.localhost\\Ubuntu\\home\\omenix\\Week-3-assignment\\BankingApp\\BankingApp\\BankingApp.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

@@ -1,20 +1,19 @@
-﻿using System;
+﻿using BankingApp.Core.Functions.Interface;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace BankingApp.Core.Functions
 {
-    public class Printer
+    public class Printer : IPrinter 
     {
-        //public static void printTable(List<CourseClass> CourseData)
-        public static void printTable(List<string[]> TableData, List<string> header_values)
+        DIContainer Config = new DIContainer();//DI Container
+        
+        public void printTable(List<string[]> TableData, List<string> header_values)
         {
-            //Console.Clear();// this is iused to clear the screen in other to print the values
+            Config.Justify();
             StringBuilder TableValue = new StringBuilder();
-            //int numberOfCourse = values.Count// defines the number of course registered and the extra row to define the table
-
             //<=============================== TableValue header==============================>
-
             for (int y = 0; y < 3; y++)
             {
                 // this used to pad the table in to the right
@@ -29,7 +28,7 @@ namespace BankingApp.Core.Functions
                     TableValue.Append("|");
                     foreach (var val in header_values)
                     {
-                        string indValue = Justification.Center(val, val.Length + 8);
+                        string indValue = Config.Justification.Center(val, val.Length + 8);
                         TableValue.Append(indValue);
                         TableValue.Append("|");
                     }
@@ -50,7 +49,7 @@ namespace BankingApp.Core.Functions
         }
 
         // print bar section of the table
-        private static void printBar(List<string> header_values, StringBuilder TableValue, string brick)
+        public void printBar(List<string> header_values, StringBuilder TableValue, string brick)
         {
             for (int i = 0; i < header_values.Count; i++)
             {
@@ -62,13 +61,14 @@ namespace BankingApp.Core.Functions
             }
             TableValue.Append(brick);
         }
-        private static void printDetails(string[] values, List<string> header_Values, StringBuilder TableValue)
+        public void printDetails(string[] values, List<string> header_Values, StringBuilder TableValue)
         {
+            Config.Justify();
             TableValue.Append("\n   |");
             int i = 0;
             foreach (string val in values)
             {
-                string indValue = Justification.Center(val, header_Values[i].Length + 8);
+                string indValue = Config.Justification.Center(val, header_Values[i].Length + 8);
                 TableValue.Append(indValue);
                 TableValue.Append("|");
                 i++;
@@ -76,7 +76,7 @@ namespace BankingApp.Core.Functions
             TableValue.Append("\n   ");
             printBar(header_Values, TableValue, "-");
         }
-        public static void Print(string Messg, bool val = false)
+        public void Print(string Messg, bool val = false)
         {
             if (val)
             {

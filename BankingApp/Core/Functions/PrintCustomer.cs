@@ -2,14 +2,18 @@
 using System.Collections.Generic;
 using BankingApp.Core.Contructs.Higher;
 using System;
+using BankingApp.Core.Functions.Interface;
 
 
 namespace BankingApp.Core.Functions
 {
-    public class PrintCustomer
+    public class PrintCustomer : IPrintCustomer
     {
-        public static void AccountDetails(Customers Member)
+       
+        DIContainer DIConfig = new DIContainer();// DI container;
+        public void AccountDetails(Customers Member)
         {
+            DIConfig.Print();
             List<string> headerValues = new List<string> { "S/N","          Name          ", "Account number",
                                                        "Account Type", "Acccount Balance" };
             int i = 1;
@@ -21,11 +25,12 @@ namespace BankingApp.Core.Functions
                                                $"#{item.Balance.ToString("#.00")}K"});
                 i++;
             }
-            Printer.printTable(footerValues,headerValues);
+            DIConfig.Printer.printTable(footerValues,headerValues);
         }
 
-        public static void TransactionDetails(List<ValidTransactionDetails> Member)
+        public void TransactionDetails(List<ValidTransactionDetails> Member)
         {
+            DIConfig.Print();
             List<string> headerValues = new List<string> { "Date", "          Account description          ", 
                                                 "Amount", "Acccount Balance" };
             int i = 1;
@@ -39,7 +44,7 @@ namespace BankingApp.Core.Functions
                                                     $"#{item.balance.ToString("#.00")}K"});
                 i++;
             }
-            Printer.printTable(footerValues, headerValues);
+            DIConfig.Printer.printTable(footerValues, headerValues);
         }
     }
 }

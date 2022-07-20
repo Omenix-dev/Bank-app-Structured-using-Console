@@ -5998,11 +5998,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\hp\\Documents\\decagon task\\week 3 task\\BankingApp\\CreatingCustomer\\CreatingCustomer.csproj",
-      "projectName": "CreatingCustomer",
-      "projectPath": "C:\\Users\\hp\\Documents\\decagon task\\week 3 task\\BankingApp\\CreatingCustomer\\CreatingCustomer.csproj",
+      "projectUniqueName": "\\\\wsl.localhost\\Ubuntu\\home\\omenix\\Week-3-assignment\\BankingApp\\CreatingCustomer\\TestingLoginDetails.csproj",
+      "projectName": "TestingLoginDetails",
+      "projectPath": "\\\\wsl.localhost\\Ubuntu\\home\\omenix\\Week-3-assignment\\BankingApp\\CreatingCustomer\\TestingLoginDetails.csproj",
       "packagesPath": "C:\\Users\\hp\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\hp\\Documents\\decagon task\\week 3 task\\BankingApp\\CreatingCustomer\\obj\\",
+      "outputPath": "\\\\wsl.localhost\\Ubuntu\\home\\omenix\\Week-3-assignment\\BankingApp\\CreatingCustomer\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\hp\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -6019,8 +6019,8 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "projectReferences": {
-            "C:\\Users\\hp\\Documents\\decagon task\\week 3 task\\BankingApp\\BankingApp\\BankingApp.csproj": {
-              "projectPath": "C:\\Users\\hp\\Documents\\decagon task\\week 3 task\\BankingApp\\BankingApp\\BankingApp.csproj"
+            "\\\\wsl.localhost\\Ubuntu\\home\\omenix\\Week-3-assignment\\BankingApp\\BankingApp\\BankingApp.csproj": {
+              "projectPath": "\\\\wsl.localhost\\Ubuntu\\home\\omenix\\Week-3-assignment\\BankingApp\\BankingApp\\BankingApp.csproj"
             }
           }
         }

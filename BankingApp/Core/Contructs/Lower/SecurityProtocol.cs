@@ -2,12 +2,12 @@
 using System.Collections.Generic;
 using BankingApp.Core.Contructs.Higher.Constants;
 using BankingApp.Core.Contructs.Higher;
-
 using System.Linq;
+using BankingApp.Core.Contructs.Lower.IModel;
 
 namespace BankingApp.Core.Contructs.Lower
 {
-    public class SecurityProtocol
+    public class SecurityProtocol : ISecurityProtocol
     {
         // contains the value that's presently logged into the value
         //this container is used tio hold the customer for the session until he logs out
@@ -15,7 +15,7 @@ namespace BankingApp.Core.Contructs.Lower
         public Customers SESSION
         {
             get { return _SESSION; }
-            internal set { _SESSION = value; }
+            set { _SESSION = value; }
         }
 
         // this is the variable that is used to store the present logging state
@@ -23,7 +23,7 @@ namespace BankingApp.Core.Contructs.Lower
         public bool IsLogged
         {
             get { return _IsLogged; }
-            internal set { _IsLogged = value; }
+            set { _IsLogged = value; }
         }
         public bool IsValid(decimal Deposit, AccountType AccountType)
         {

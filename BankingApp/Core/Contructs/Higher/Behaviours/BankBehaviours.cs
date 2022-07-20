@@ -1,25 +1,27 @@
 ﻿using BankingApp.Core.Contructs.Lower;
 using BankingApp.Core.Contructs.Higher.Constants;
-using BankingApp.Core.Functions;
 using System.Collections.Generic;
-using System;
+using BankingApp.Core.Contructs.Higher.Behaviours.IBehaviours;
 
 namespace BankingApp.Core.Contructs.Higher.Behaviours
 {
     public class BankBehaviours
     {
-        internal bool Withdrawal(SecurityProtocol Protocol,
+        DIContainer Config = new DIContainer();
+
+        public bool Withdrawal(SecurityProtocol Protocol,
                                string Description,
                                decimal Deposit,
                                string AccountNumber) 
         {
+            Config.Record();
             if (Protocol.IsLogged)
             {
                 var CanWithdraw = Protocol.CheckAccountability(Deposit, AccountNumber);
                 if (CanWithdraw != null)
                 {
                 // created the record once the value is the withdrawal is authorised
-                   var CreateRecord = CreateBankingRecord.Recorded
+                   var CreateRecord = Config.CreateBankingRecord.Recorded
                                        (Description, AccountNumber,
                                        Deposit, -1,CanWithdraw.Balance);
                     CanWithdraw.ValidTransactionDetails.Add(CreateRecord);
@@ -30,14 +32,15 @@ namespace BankingApp.Core.Contructs.Higher.Behaviours
             return false;// if the person is not logged in 
         }// end of the withdrawal method
 
-        internal bool AcceptDeposit(decimal Deposit,string AccountNumber,string Description,
-                                  SecurityProtocol Protocol,List<Customers>AllCustomers) 
+        public bool AcceptDeposit(decimal Deposit,string AccountNumber,string Description,
+                                  SecurityProtocol Protocol,List<Customers>AllCustomers)
         {
+            Config.Record();
             // this is used to check whether the Account has been created
             var IsExiting = Protocol.IsAValidAccount(AccountNumber,AllCustomers);
             if (IsExiting != null)
             {
-                var CreateRecord = CreateBankingRecord.Recorded(Description,
+                var CreateRecord = Config.CreateBankingRecord.Recorded(Description,
                                                                 AccountNumber,
                                                                 Deposit,1,
                                                                 IsExiting.Balance);
@@ -48,12 +51,12 @@ namespace BankingApp.Core.Contructs.Higher.Behaviours
             return false;
         }
 
-        internal bool Transfer(SecurityProtocol Protocol,
+        public bool Transfer(SecurityProtocol Protocol,
                              string Description,
                              string SenderAccountNO,
                              string RecipientAccountNO,
                              List<Customers> AllCustomers,
-                             decimal Amount) 
+                             decimal Amount)
         {
             if (Protocol.IsLogged)
             {
@@ -101,13 +104,14 @@ namespace BankingApp.Core.Contructs.Higher.Behaviours
 
         public bool CreateAccount(int AccountType,decimal Deposit,SecurityProtocol Protocol) 
         {
+            Config.Record();
             if (Protocol.IsLogged)
             {
                 if (Protocol.IsValid(Deposit,(AccountType)AccountType))
                 {
                     //instantiated the customer accout details below
                     var AccountCreatedInformation = new AccountDetails((AccountType)AccountType, Deposit);
-                    var CreateRecord = CreateBankingRecord.Recorded("Account was Created",
+                    var CreateRecord = Config.CreateBankingRecord.Recorded("Account was Created",
                                        AccountCreatedInformation.AccountNumber,Deposit,1,0.0M);
 
                     AccountCreatedInformation.ValidTransactionDetails.Add(CreateRecord);// update the list with transcation details
@@ -122,35 +126,10 @@ namespace BankingApp.Core.Contructs.Higher.Behaviours
             return false;
         }
 
-        public bool DeleteAccount(SecurityProtocol Protocol,
-                    List<Customers> AllCustomer,string AccountNumber) 
-        {
-            if (Protocol.IsLogged)
-            {
-                var IsValid = Protocol.IsAValidAccount(AccountNumber, AllCustomer);
-                if(IsValid != null)
-                {
-                    Protocol.SESSION.CustomerAccountDetails.Remove(IsValid);
 
-                }
-                return true;
-            }
-            return false;
-        }
-        public bool DeleteCustomer(SecurityProtocol protocol,List<Customers> AllCustomer)
-        { 
-            // remove the customer from the List of Customer
-            if (protocol.IsLogged)
-            {
-                AllCustomer.Remove(protocol.SESSION);
-                //Printer.Print("You have remove the customer from your database");
-                return true;
-            }
-            return false;
-
-        }
-        internal void PrintStatement(SecurityProtocol Protocol,string AccountNumber)
+        public void PrintStatement(SecurityProtocol Protocol,string AccountNumber)
         {
+            Config.PrintCus();
             if (Protocol.IsLogged)
             {
                 var AccountIsValid = Protocol.IsAValidAccount(AccountNumber,
@@ -158,7 +137,7 @@ namespace BankingApp.Core.Contructs.Higher.Behaviours
 
                 if (AccountIsValid != null)
                 {
-                    PrintCustomer.TransactionDetails(AccountIsValid.ValidTransactionDetails);                    
+                    Config.PrintCustomer.TransactionDetails(AccountIsValid.ValidTransactionDetails);                    
                 }
             }
         }

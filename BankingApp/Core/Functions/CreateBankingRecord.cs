@@ -1,13 +1,14 @@
 ﻿using System;
 using BankingApp.Core.Contructs.Higher;
+using BankingApp.Core.Functions.Interface;
 
 namespace BankingApp.Core.Functions
 {
-    public static class CreateBankingRecord
+    public class CreateBankingRecord : ICreateBankingRecord
     {
-        public static ValidTransactionDetails Recorded(
+        public ValidTransactionDetails Recorded(
                               string Description, string AccountNumber,
-                              Decimal Amount, int TransactionType,decimal balance)
+                              decimal Amount, int TransactionType,decimal balance)
         {
             var Details = new ValidTransactionDetails(Description,
                                                       AccountNumber,

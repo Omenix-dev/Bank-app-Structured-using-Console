@@ -45,8 +45,10 @@ namespace BankingApp.Core.Contructs.Higher
         //public AccountDetails() { }
         public AccountDetails(AccountType AccountType, decimal Deposit)
         {
+            var Config = new DIContainer();
+            Config.Account();
             this.AccountType = AccountType;
-            AccountNumber = AccountGenerator.Generate();
+            AccountNumber = Config.AccountGenerator.Generate();
             ValidTransactionDetails = new List<ValidTransactionDetails>();
         }
     }

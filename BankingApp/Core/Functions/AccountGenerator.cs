@@ -1,12 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using BankingApp.Core.Functions.Interface;
 
 namespace BankingApp.Core.Functions
 {
-    public static class AccountGenerator
+    public class AccountGenerator : IAccountGenerator 
     {
-        private static List<string> AccountHistory = new List<string>();
-        public static string Generate()
+        private List<string> AccountHistory = new List<string>();
+        public string Generate()
         {
             var accountNumber = "";
             while (true)

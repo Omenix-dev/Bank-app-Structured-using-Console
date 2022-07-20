@@ -2,12 +2,14 @@
 using BankingApp.Core.Contructs.Higher.Behaviours;
 using BankingApp.Core.Contructs.Higher.Constants;
 using System.Collections.Generic;
+using BankingApp.Core.Contructs.Higher.Behaviours.IBehaviours;
 
 namespace BankingApp.Core.Contructs.Lower
 {
-    public class Customers : CustomerBehaviours
+    public class Customers : CustomerBehaviours , ICustomerBehaviours
     {
         private List<AccountDetails> _CustomerAccountDetails;
+        
         public List<AccountDetails> CustomerAccountDetails
         {
             get { return _CustomerAccountDetails; }
@@ -15,12 +17,15 @@ namespace BankingApp.Core.Contructs.Lower
         }
 
         private PersonalDetails _PersonalDetails;
+        
         public PersonalDetails PersonalDetails
         {
             get { return _PersonalDetails; }
             protected set { _PersonalDetails = value; }
         }
+        
         private string _Password;
+        
         public string Password
         {
             get { return _Password; }
@@ -38,7 +43,5 @@ namespace BankingApp.Core.Contructs.Lower
             this.CustomerAccountDetails = new List<AccountDetails>();
         }
         
-
-
     }
 }
